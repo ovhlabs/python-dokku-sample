@@ -1,0 +1,49 @@
+{% extends "bootstrap/base.html" %}
+
+{% block html_attribs %} lang="en"{% endblock %}
+
+{% block metas %}
+    <meta charset="utf-8">
+    {{super()}}
+{% endblock %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+{% endblock %}
+
+{% block title %} - Python Dokku{% endblock %}
+
+{% block navbar %}
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Python Dokku</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://www.runabove.com">RunAbove</a></li>
+          <li><a href="https://github.com/runabove">Github</a></li>
+          <li><a href="https://manager.runabove.com/feedback/responses/using-dokku-on-runabove">Help</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">{{ self.title() }}</h1>
+        {% block page_content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
